@@ -1,3 +1,4 @@
+import os
 from typing import Text
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element, SubElement, Comment, ElementTree
@@ -25,7 +26,10 @@ def buscar(lib,tit):
     return -1
 
 def alta():
-    tree = leerXML("Libreria.xml")
+    if(os.path.exists('Libreria.xml')):
+        tree = leerXML("Libreria.xml")
+    else:
+        tree = Element("Libreria")
 
     titulo = input("Titulo\n")
     autor = input("Autor\n")
