@@ -33,13 +33,15 @@ def alta():
 
     titulo = input("Titulo\n")
     autor = input("Autor\n")
+    generoAutor = input("H/M\n")
+    edad = input("Edadn")
     genero = input("Genero\n")
     anio = input("Año de publicacion\n")
 
     libro = ET.Element('libro')
     tit = ET.SubElement(libro, 'titulo')
     tit.text = titulo
-    aut = ET.SubElement(libro, 'autor')
+    aut = ET.SubElement(libro, 'autor',{'Genero':generoAutor,'Edad':edad})
     aut.text = autor
     gen = ET.SubElement(libro, 'genero')
     gen.text = genero
